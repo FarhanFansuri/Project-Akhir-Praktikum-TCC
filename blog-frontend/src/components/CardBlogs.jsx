@@ -18,13 +18,14 @@ const Post = (props)=>{
           </Card.Text>
           <Row>
             <Col xs={1}>
-              <Button variant="danger" onClick={()=>{
+              <Button variant="danger" onClick={(e)=>{
                 ApiData.delData(props.id)
+                navigate('/')
               }}>Hapus</Button>
             </Col >
 
             <Col xs={1}>
-              <Button variant="warning" onClick={()=>{
+              <Button variant="warning" onClick={(e)=>{
                 navigate(`/updatepost/${props.id}`);
               }} >Ubah</Button>
             </Col> 

@@ -34,12 +34,10 @@ function FormPost(props) {
             }} />
         </Form.Group>
         {!props.update && <button className='btn btn-danger text-white' onClick={(e)=>{
-          e.preventDefault()
           ApiData.postData(title,content)
-          navigate('/')
+          navigate('/');
         }}>Post</button>}
         {props.update && <button className='btn btn-danger text-white' onClick={(e)=>{
-          e.preventDefault()
           ApiData.putData(id,title,content)
           navigate('/')
         }}>Update</button>}

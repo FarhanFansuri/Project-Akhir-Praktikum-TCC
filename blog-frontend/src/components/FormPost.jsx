@@ -7,13 +7,14 @@ import {useNavigate} from 'react-router-dom';
 // import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ApiData from '../config/ApiData';
+import { useParams } from 'react-router-dom';
 
-
-function FormPost() {
+function FormPost(props) {
 
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
   const navigate = useNavigate();
+  const { id } = useParams();
   return (
     <Container className="mb-4">
     <Card>
@@ -32,11 +33,16 @@ function FormPost() {
               setContent(e.target.value)
             }} />
         </Form.Group>
-        <button className='btn btn-danger text-white' onClick={(e)=>{
+        {!props.update && <button className='btn btn-danger text-white' onClick={(e)=>{
           e.preventDefault()
           ApiData.postData(title,content)
           navigate('/')
-        }}>Post</button>
+        }}>Post</button>}
+        {props.update && <button className='btn btn-danger text-white' onClick={(e)=>{
+          e.preventDefault()
+          ApiData.putData(id,title,content)
+          navigate('/')
+        }}>Update</button>}
         </Form>
         </Card.Body>
     </Card>

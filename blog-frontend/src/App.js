@@ -3,6 +3,7 @@ import './App.css';
 import {Routes, Route} from 'react-router-dom';
 import NavbarBlog from './components/NavbarBlog';
 import InputPostBlog from './pages/InputPostBlog';
+import UpdatePostBlog from './pages/UpdateBlog';
 import React, { Suspense} from 'react';
 const PostBlog =  React.lazy(() => import('./pages/PostBlog'));
 
@@ -19,6 +20,7 @@ function App() {
       </Suspense>
         } />
         <Route path='/inputpost' element={<InputPostBlog/>} />
+        <Route path='/updatepost/:id' element={<UpdatePostBlog/>} />
       </Routes>
     </div>
   );

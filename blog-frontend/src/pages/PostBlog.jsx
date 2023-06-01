@@ -34,7 +34,7 @@ const Posts = ()=>{
                 <Col xs={9} style={{ textAlign:'justify' }}>
                     {
                         isExist && dataApi.data.map((data, index)=>{
-                            return <CardBlogs key={index} title={data.title} content={data.content}/>
+                            return <CardBlogs key={index} title={data.title} content={data.content} id={data.id}/>
                         })
                         
                     }

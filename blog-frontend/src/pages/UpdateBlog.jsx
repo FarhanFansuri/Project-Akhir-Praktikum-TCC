@@ -14,7 +14,7 @@ function InputPostBlog() {
                     <Profile/>
                 </Col>
                 <Col xs={9} style={{ textAlign:'justify' }}>
-                    <FormPost update={false} />
+                    <FormPost update={true} />
                 </Col>
             </Row>  
         </Container>

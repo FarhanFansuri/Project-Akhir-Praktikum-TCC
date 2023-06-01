@@ -39,6 +39,24 @@ app.post("/db-demo/post", async (req, res) => {
   res.json(req.body);
 });
 
+app.put("/db-demo/put", async (req, res) => {
+  const insertedRows = await knex('exampletable')
+  .where({ id: req.body.id })
+  .update({ 
+    title: req.body.title,
+    content : req.body.content
+  })
+  res.json(req.body);
+});
+
+app.delete("/db-demo/delete/:id", async (req, res) => {
+  const insertedRows = await knex('exampletable')
+  .where('id', req.params.id)
+  .del()
+  res.json(req.body);
+});
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
